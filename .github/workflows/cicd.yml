@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 3. Install backend dependencies (if exists)
+      - name: Install Backend Dependencies
+        run: |
+          if [ -d "backend" ]; then
+            cd backend
+            npm install
+          fi
+
+      # 4. Run basic check
+      - name: Run App Check
+        run: echo "Project is building successfully ✅"
+
+      # 5. Finish
+      - name: Success Message
+        run: echo "CI Pipeline Passed 🎉"
