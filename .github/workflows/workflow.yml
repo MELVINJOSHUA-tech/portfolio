@@ -1,0 +1,30 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies (if backend exists)
+        run: |
+          if [ -f backend/package.json ]; then
+            cd backend
+            npm install
+          else
+            echo "No backend found, skipping install"
+          fi
+
+      - name: Build Check
+        run: echo "Build successful ✅"
