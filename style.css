@@ -2,14 +2,14 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #21d02a;
-  --surface: #931ac3;
-  --surface2: #ce11a5;
-  --border: #1e2a38;
-  --accent: #e42828;
+  --bg: #300304;
+  --surface: #20022b;
+  --surface2: #2e0224;
+  --border: #1c2503;
+  --accent: #310eca;
   --accent2: #7b61ff;
-  --text: #e8edf3;
-  --muted: #c9116d;
+  --text: #083e80;
+  --muted: #073a69;
 }
 
 html { scroll-behavior: smooth; }
